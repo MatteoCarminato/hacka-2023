@@ -12,7 +12,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p class="card-text">{{ $produto->descricao }}</p>
-                    <a href="#" class="btn btn-primary">Visitar</a>
+                    <a href="{{ route('qrcode', $produto->id) }}">QrCode</a>
+                    <a href="{{ route('produtos.show', $produto->id) }}">Detalhes</a>
                 </div>
             </div>
         @endforeach

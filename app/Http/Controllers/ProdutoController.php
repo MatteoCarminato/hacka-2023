@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ProdutoController extends Controller
 {
@@ -78,5 +79,10 @@ class ProdutoController extends Controller
         $produto->delete();
 
         return redirect()->route('produtos.index');
+    }
+
+    public function qrcode($qrcode){
+        $url = env('APP_URL') . '/produtos/' . $qrcode;
+        return QrCode::size(300)->generate($url);
     }
 }

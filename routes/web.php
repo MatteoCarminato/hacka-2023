@@ -1,10 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\VLibrasController;
-
-Route::get('/vlibras/translate', [VLibrasController::class, 'translate'])->name('vlibras.translate');
 
 
 /*
@@ -24,4 +21,5 @@ Route::get('/', function () {
 
 Route::resource('produtos', 'App\Http\Controllers\ProdutoController');
 
-Route::post('/handtalk/translate', 'App\Http\Controllers\HandTalkController@translate');
+
+Route::get('/qrcode/{qrcode}', [ProdutoController::class, 'qrcode'])->name('qrcode');

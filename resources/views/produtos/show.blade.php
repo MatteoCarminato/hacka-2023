@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-4">
         <h1>Ponto Turistico - {{ $produto->nome }} </h1>
 
-        <div class="row d-flex">
+        <div class="row d-flex mt-2">
             <div class="col-md-4">
                 <img src="{{ asset('imagens/'.$produto->imagem) }}" class="img-fluid" alt="Imagem do produto">
             </div>
