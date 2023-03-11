@@ -1,19 +1,30 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meu site com Bootstrap</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-@section('content')
-    <div class="container mb-4">
-        <h1>Ponto Turistico - {{ $produto->nome }} </h1>
 
-        <div class="row d-flex mt-2">
-            <div class="col-md-4">
-                <img src="{{ asset('imagens/'.$produto->imagem) }}" class="img-fluid" alt="Imagem do produto">
-            </div>
-        <div class="col-md-8">
-        <h5>{{ $produto->nome }}</h5>
-        <p>{{ $produto->descricao }}</p>
+
+<div class="row">
+<div class="card">
+  <img class="card-img-top" src="{{ asset('imagens/'.$produto->imagem) }}" alt="{{ $produto->nome }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ $produto->nome }}</h5>
+    <p class="card-text">{{ $produto->descricao }}</p>
+  </div>
+</div>
     </div>
 
-    <script>
+
+<script>
       document.addEventListener("DOMContentLoaded", function (event) {
         const wait_time = 3000;
 
@@ -21,7 +32,10 @@
           document.getElementsByClassName("active")[0].click();
 
           init();
+          $(".vpw-box").addClass("d-none");
         }, wait_time);
+
+        $(".vpw-box").addClass("d-none");
       });
 
       function traduzir(string) {
@@ -40,9 +54,7 @@
     <script>
       new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -58,5 +70,9 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+ 
+        
+  </body>
+</html>
 
-@endsection
+
