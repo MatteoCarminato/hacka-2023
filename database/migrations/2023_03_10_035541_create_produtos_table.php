@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->longtext('descricao');
+            $table->string('descricao', 2000);
             $table->string('imagem');
             $table->string('qrcode');
             $table->timestamps();
